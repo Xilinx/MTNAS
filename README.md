@@ -1,22 +1,16 @@
-# MTNAS
+# Multi-Task Neural Architecture Search (MTNAS)
 
-This code belongs to the "MTNAS: Search Multi-Task Networks for Autonomous Driving" [ACCV 2020]
+This repository contains the code of "[MTNAS: Search Multi-Task Networks for Autonomous Driving](https://openaccess.thecvf.com/content/ACCV2020/papers/Liu_MTNAS_Search_Multi-Task_Networks_for_Autonomous_Driving_ACCV_2020_paper.pdf)", which is accepted in Asian Conference on Computer Vision (ACCV), 2020.
 
-![](./img/Picture1.png)
-    We first search for the optimal branch architectures for each task separately and then search for the optimal backbone architecture under the overall guidance. 
-    For the reason of search order, we explain that our goal is to search for task-specific branches and task-shared backbone. When optimizing the backbone, we need tocompute the loss from all the tasks. After obtaining the optimal branch architectures, backbone can benefit from each branch architecture and then learn shared knowledge across all tasks, leading to overall optimization for MTL.
-    Then, in the stage of backbone search, we propose a simple but effective pre-searching procedure to search for an initialized backbone architecture under the guidance of auxiliary ImageNet classification task. After pre-searching, a well-initialized backbone model is obtained
-    At last, branch architectures remain unchanged. Backbone can benefit from the optimal branches to learn shared knowledge from all tasks. The task-shared backbone will be generated after this backbone search stage.
+##  Requirements
 
-#  **Requirements** 
-
-1. Use  Anaconda create a python  environment 
+1. Use Anaconda create a python  environment
 
    ```shell
    conda create -n test python=3.6
    ```
 
-2. activate the environment and install dependencies . 
+2. Activate the environment and install dependencies
 
    ```shell
    source activate test
@@ -31,9 +25,9 @@ This code belongs to the "MTNAS: Search Multi-Task Networks for Autonomous Drivi
    conda env create /code/conda_config/environment.yaml
    ```
 
-# **Preparation**
+## Preparation
 
-1. Evaluation Dataset Directory Structure like:
+1. Evaluation dataset directory structure:
 
    ```markdown
    + data
@@ -68,20 +62,20 @@ This code belongs to the "MTNAS: Search Multi-Task Networks for Autonomous Drivi
         save segmentation evaluation results
    ```
 
-# **Eval**
+## Eval
 
- Evaluate at  ./code/test/
-
-1. Evaluate Detection Performance
+1. Evaluate detection performance
 
    ```shell
+   cd ./code/test/
    bash ./eval_det.sh
    #the results will be saved at /data/det_log.txt
    ```
 
-2. Evaluate Segmentation Performance
+2. Evaluate segmentation performance
 
    ```shell
+   ./code/test/
    bash ./eval_seg.sh
    #the results will be saved at /data/seg_log.txt
    ```
@@ -89,6 +83,7 @@ This code belongs to the "MTNAS: Search Multi-Task Networks for Autonomous Drivi
 3. Demo
 
    ```shell
+   ./code/test/
    bash ./run_demo.sh
    #the demo pics will be saved at /code/test/result/demo
    ```
@@ -104,24 +99,3 @@ This code belongs to the "MTNAS: Search Multi-Task Networks for Autonomous Drivi
    mAP: 43.67% 
    mIou: 46.15%
    ```
-5. Visualizing on BDD100K dataset
-
-![](./img/Picture2.png)
-
-![](./img/Picture3.png)
-
-![](./img/Picture4.png)
-    The figure visualizes some examples of MTL results on the BDD100K dataset. In general, our MTNAS method can achieve more accurate detection and segmentation results compared to the hand-crafted MTL baseline.
-    For example, MTNAS can better detect small objects (traffic sign) in the first row and crowd people in the second row. Besides, MTNAS can better segment the objects with a well-defined shape (car) and amorphous background regions ( sidewalk and sky) as shown in the last three rows
-
-# **Model_info**
-
-1. Data preprocess 
-
-   ```markdown
-   data channel order: BGR(0~255)                  
-   resize: h * w = 320 * 512 (cv2.resize(image, (new_w, new_h)). astype(np.float32))
-   mean: (104, 117, 123), input = input - mean
-   
-   ```
-
