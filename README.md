@@ -1,8 +1,8 @@
-# Multi-Task Neural Architecture Search (MTNAS)
+# MTNAS: Search Multi-Task Networks for Autonomous Driving (ACCV 2020)
 
 This repository contains the code of "[MTNAS: Search Multi-Task Networks for Autonomous Driving](https://openaccess.thecvf.com/content/ACCV2020/papers/Liu_MTNAS_Search_Multi-Task_Networks_for_Autonomous_Driving_ACCV_2020_paper.pdf)", which is accepted in Asian Conference on Computer Vision (ACCV), 2020.
 
-##  Requirements
+## Requirements
 
 1. Use Anaconda create a python  environment
 
@@ -99,3 +99,16 @@ This repository contains the code of "[MTNAS: Search Multi-Task Networks for Aut
    mAP: 43.67% 
    mIou: 46.15%
    ```
+
+## Citation
+
+If you find the code and pre-trained model useful in your research, please consider citing:
+```
+@InProceedings{Liu_2020_ACCV,
+    author    = {Liu, Hao and Li, Dong and Peng, JinZhang and Zhao, Qingjie and Tian, Lu and Shan, Yi},
+    title     = {MTNAS: Search Multi-Task Networks for Autonomous Driving},
+    booktitle = {Proceedings of the Asian Conference on Computer Vision (ACCV)},
+    year      = {2020}
+}
+```
+
