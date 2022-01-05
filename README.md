@@ -102,7 +102,7 @@ This repository contains the code of "[MTNAS: Search Multi-Task Networks for Aut
 
 ## Citation
 
-If you find the code and pre-trained model useful in your research, please consider citing:
+If you find the code and pre-trained model useful in your research, please cite our paper:
 ```
 @InProceedings{Liu_2020_ACCV,
     author    = {Liu, Hao and Li, Dong and Peng, JinZhang and Zhao, Qingjie and Tian, Lu and Shan, Yi},
